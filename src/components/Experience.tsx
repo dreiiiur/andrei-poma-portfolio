@@ -12,7 +12,7 @@ const TIMELINE_DATA = [
     role: "Creative Technologist & Multimedia Designer",
     responsibilities: [
       "Produced graphics and video advertisements to boost social media campaigns.",
-      "Developed custom websites for multiple international brand clients.",
+      "Developed custom websites for multiple clients using modern frontend technologies and design systems.",
       "Implemented AI-powered workflows to reduce operational tasks and automate marketing pipelines.",
       "Created reusable modern design systems and digital marketing assets.",
     ],
