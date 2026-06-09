@@ -164,7 +164,7 @@ export default function Skills() {
                   {category.tools.map((tool, toolIdx) => (
                     <motion.span
                       key={toolIdx}
-                      variants={tagVariants}
+                    
                       className={`
                         inline-flex items-center gap-2 px-4 py-2 rounded-full
                         text-xs font-semibold tracking-wide uppercase
