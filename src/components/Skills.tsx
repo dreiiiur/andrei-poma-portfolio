@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import { Cpu, Film, Layout, Terminal } from "lucide-react";
 import GlassCard from "./ui/GlassCard";
 
@@ -95,7 +95,7 @@ const tagVariants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.4, ease: easeOut, type: "spring", stiffness: 300, damping: 20 },
   },
 };
 
