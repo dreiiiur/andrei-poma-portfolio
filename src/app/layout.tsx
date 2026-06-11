@@ -14,24 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Andrei Poma | Creative Technologist & Full-Stack Developer",
-  description: "Graphic Artist, Video Editor, Full-Stack Web Developer, and Automation Specialist. I build responsive websites, design premium digital assets, and create AI-powered business workflows.",
+  title: "Andrei Poma | Creative Technologist & Web Developer",
+  description: "Graphic Artist, Video Editor, Web Developer, and Automation Specialist. I build responsive websites, design premium digital assets, and create AI-powered business workflows.",
   keywords: [
     "Andrei Poma",
-    "Portfolio",
+    "Portfolio",  
     "Creative Technologist",
-    "Full-Stack Web Developer",
+    "Web Developer",
     "Graphic Artist",
     "Video Editor",
     "Automation Specialist",
-    "n8n Workflow",
-    "AI Automation",
-    "Next.js Portfolio"
   ],
   authors: [{ name: "Andrei Poma" }],
   openGraph: {
-    title: "Andrei Poma | Creative Technologist & Full-Stack Developer",
-    description: "Personal portfolio of Andrei Poma, showcasing design, full-stack web development, video production, and workflow automation.",
+    title: "Andrei Poma | Creative Technologist & Web Developer",
+    description: "Personal portfolio of Andrei Poma, showcasing design, web development, video production, and workflow automation.",
     type: "website",
     locale: "en_US",
   },
