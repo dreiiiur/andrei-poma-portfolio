@@ -2,6 +2,7 @@
 
 /* === Dark Theme (default) === */
 .dark {
+  color-scheme: dark;
   --background: #08080a;
   --background-alt: #070709;
   --background-card: #0b0b0e;
@@ -30,6 +31,7 @@
 
 /* === Light Theme === */
 .light {
+  color-scheme: light;
   --background: #f8f9fc;
   --background-alt: #f0f1f5;
   --background-card: #ffffff;
@@ -122,6 +124,20 @@ body {
 
 .glass-input::placeholder {
   color: var(--foreground-muted);
+}
+
+select.glass-input {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+}
+
+select.glass-input option {
+  background-color: var(--background-card);
+  color: var(--input-text);
 }
 
 /* Custom Webkit Scrollbar */

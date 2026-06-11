@@ -3,6 +3,15 @@ import React, { useState } from "react";
 import { AnimatePresence, motion as framerMotion } from "framer-motion";
 import { Check, Download, Github, Linkedin, Mail, Send } from "lucide-react";
 import GlassCard from "./ui/GlassCard";
+import Select from "./ui/Select";
+
+const PROJECT_TYPE_OPTIONS = [
+  { value: "Web Development", label: "Web Development" },
+  { value: "Graphic Design", label: "Graphic Design" },
+  { value: "Video Editing", label: "Video Editing" },
+  { value: "Automation Solutions", label: "Automation Solutions" },
+  { value: "Other Contract", label: "Other Contract / Consultation" },
+];
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -37,17 +46,25 @@ export default function Contact() {
     }, 1200);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
+  const handleProjectTypeChange = (value: string) => {
+    setFormState((prev) => ({
+      ...prev,
+      projectType: value,
+    }));
+  };
+
   return (
     <section
       id="contact"
-      className="relative py-24 px-4 md:px-8 border-t border-white/5 bg-[#08080a]"
+      className="relative py-24 px-4 md:px-8 border-t dark:border-white/5 border-zinc-200 transition-colors duration-400"
+      style={{ background: "var(--background)" }}
     >
       <div className="w-full max-w-5xl mx-auto space-y-16">
         
@@ -67,7 +84,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase"
+            className="text-3xl sm:text-4xl font-extrabold dark:text-white text-zinc-900 tracking-tight uppercase"
           >
             Let's Build Something Amazing
           </framerMotion.h3>
@@ -76,7 +93,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm text-zinc-400 max-w-md"
+            className="text-sm dark:text-zinc-400 text-zinc-500 max-w-md"
           >
             Interested in working together? Let's discuss your next project and outline a strategy for success.
           </framerMotion.p>
@@ -89,16 +106,16 @@ export default function Contact() {
           <div className="md:col-span-5 space-y-6">
             
             {/* Quick Contact Links Box */}
-            <GlassCard className="border border-white/5 p-8 space-y-6">
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider">Contact Info</h4>
+            <GlassCard className="border dark:border-white/5 border-zinc-200 p-8 space-y-6">
+              <h4 className="text-sm font-bold dark:text-white text-zinc-900 uppercase tracking-wider">Contact Info</h4>
               
               <div className="space-y-4">
                 <a
                   href="mailto:contact@andreipoma.com"
-                  className="flex items-center gap-3 text-xs md:text-sm text-zinc-400 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 text-xs md:text-sm dark:text-zinc-400 text-zinc-500 dark:hover:text-white hover:text-zinc-900 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
-                    <Mail size={16} className="text-zinc-400 group-hover:text-blue-400" />
+                  <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
+                    <Mail size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
                   <span>contact@andreipoma.com</span>
                 </a>
@@ -107,10 +124,10 @@ export default function Contact() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-xs md:text-sm text-zinc-400 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 text-xs md:text-sm dark:text-zinc-400 text-zinc-500 dark:hover:text-white hover:text-zinc-900 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
-                    <Linkedin size={16} className="text-zinc-400 group-hover:text-blue-400" />
+                  <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
+                    <Linkedin size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
                   <span>linkedin.com/in/andreipoma</span>
                 </a>
@@ -119,10 +136,10 @@ export default function Contact() {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-xs md:text-sm text-zinc-400 hover:text-white transition-colors group"
+                  className="flex items-center gap-3 text-xs md:text-sm dark:text-zinc-400 text-zinc-500 dark:hover:text-white hover:text-zinc-900 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/5 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
-                    <Github size={16} className="text-zinc-400 group-hover:text-blue-400" />
+                  <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
+                    <Github size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
                   <span>github.com/andreipoma</span>
                 </a>
@@ -130,10 +147,10 @@ export default function Contact() {
             </GlassCard>
 
             {/* Resume Action Card */}
-            <GlassCard className="border border-white/5 p-8 relative overflow-hidden flex flex-col gap-4">
+            <GlassCard className="border dark:border-white/5 border-zinc-200 p-8 relative overflow-hidden flex flex-col gap-4">
               <div>
-                <h4 className="text-sm font-bold text-white uppercase tracking-wider">Need the details?</h4>
-                <p className="text-xs text-zinc-400 mt-2 leading-relaxed">
+                <h4 className="text-sm font-bold dark:text-white text-zinc-900 uppercase tracking-wider">Need the details?</h4>
+                <p className="text-xs dark:text-zinc-400 text-zinc-500 mt-2 leading-relaxed">
                   Download my full background, technical credentials, and past client references in one PDF.
                 </p>
               </div>
@@ -152,14 +169,14 @@ export default function Contact() {
 
           {/* Right Column: Form Card */}
           <div className="md:col-span-7">
-            <GlassCard className="border border-white/5 p-8" hoverEffect={false}>
+            <GlassCard className="border dark:border-white/5 border-zinc-200 p-8" hoverEffect={false}>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 
                 {/* Form Row: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                    <label htmlFor="name" className="text-[10px] font-bold dark:text-zinc-400 text-zinc-500 uppercase tracking-widest">
                       Your Name
                     </label>
                     <input
@@ -175,7 +192,7 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                    <label htmlFor="email" className="text-[10px] font-bold dark:text-zinc-400 text-zinc-500 uppercase tracking-widest">
                       Email Address
                     </label>
                     <input
@@ -193,27 +210,21 @@ export default function Contact() {
 
                 {/* Form Row: Project Type Select */}
                 <div className="space-y-2">
-                  <label htmlFor="projectType" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                  <label htmlFor="projectType" className="text-[10px] font-bold dark:text-zinc-400 text-zinc-500 uppercase tracking-widest">
                     Project Type
                   </label>
-                  <select
+                  <Select
                     id="projectType"
                     name="projectType"
                     value={formState.projectType}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 glass-input text-xs bg-[#0b0b0e] cursor-pointer"
-                  >
-                    <option value="Web Development">Web Development</option>
-                    <option value="Graphic Design">Graphic Design</option>
-                    <option value="Video Editing">Video Editing</option>
-                    <option value="Automation Solutions">Automation Solutions</option>
-                    <option value="Other Contract">Other Contract / Consultation</option>
-                  </select>
+                    options={PROJECT_TYPE_OPTIONS}
+                    onChange={handleProjectTypeChange}
+                  />
                 </div>
 
                 {/* Form Row: Message */}
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                  <label htmlFor="message" className="text-[10px] font-bold dark:text-zinc-400 text-zinc-500 uppercase tracking-widest">
                     Your Message
                   </label>
                   <textarea
@@ -232,10 +243,10 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold text-xs tracking-wider uppercase transition-all duration-300 w-full flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="px-6 py-3.5 rounded-xl dark:bg-white/5 bg-zinc-100 dark:hover:bg-white/10 hover:bg-zinc-200 dark:text-white text-zinc-800 border dark:border-white/10 border-zinc-300 font-bold text-xs tracking-wider uppercase transition-all duration-300 w-full flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
-                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span className="w-4 h-4 border-2 border-zinc-400/30 border-t-zinc-800 dark:border-white/30 dark:border-t-white rounded-full animate-spin" />
                   ) : (
                     <>
                       <Send size={12} />
@@ -251,7 +262,7 @@ export default function Contact() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold flex items-center gap-2"
+                      className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 dark:text-emerald-400 text-xs font-semibold flex items-center gap-2"
                     >
                       <Check size={16} />
                       Thank you! Your inquiry was sent successfully. Andrei will contact you shortly.

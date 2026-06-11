@@ -3,97 +3,98 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Code, Eye, ExternalLink, Cpu, Layout, X } from "lucide-react";
-import GlassCard from "./ui/GlassCard";
+import { ExternalLink, X, ArrowUpRight } from "lucide-react";
 
 interface Project {
   id: number;
   title: string;
-  category: "Development" | "Graphic Design" | "Automation";
+  category: "Development" | "Marketing" | "Automation";
   description: string;
   image: string;
   techStack: string[];
   features: string[];
   client: string;
   year: string;
+  link?: string;
 }
 
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "International E-commerce Website",
+    title: "Zenoboard Philippines",
     category: "Development",
-    description: "Developed a modern, high-performance e-commerce platform for an international client. Focused on creating a smooth digital checkout experience, lightning-fast load times, and a completely responsive mobile layout.",
-    image: "/project1.png",
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Stripe API", "Node.js"],
+    description: "Developed a modern, high-performance e-commerce platform for a local startup. Focused on creating a smooth digital product catalog, lightning-fast load time, completely responsive mobile layout, and with a product visualizer. ",
+    image: "https://scontent.fcrk1-2.fna.fbcdn.net/v/t39.30808-6/655737571_1367353278482907_4151684737744893578_n.jpg?stp=dst-jpg_tt6&cstp=mx2047x2048&ctp=s2047x2048&_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Xus6XqKA27oQ7kNvwEilMXu&_nc_oc=AdoiguSs1fnpoB-akrCiUARQ1pVb_ogZdERa-3miYQNDQgx_3I50ee86JNz0SSdI8G8&_nc_zt=23&_nc_ht=scontent.fcrk1-2.fna&_nc_gid=KLYQWFSOc1EunYtX60fg8g&_nc_ss=7a2a8&oh=00_Af-kQOkBL4eBGZLNksGsgC2FtVFe5LIdVBMK54KfFjWSEQ&oe=6A30781D",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
     features: [
-      "Dynamic catalog search and custom filter system",
-      "Stripe payment integration with multi-currency handling",
-      "Full localization support for multiple languages",
-      "Comprehensive admin panel for managing inventory and orders",
+      "Custom product visualizer with user-friendly interface",
+      "Email marketing integration with Mailjs",
+      "Guided product selection and purchase process",
+      "Customer experience optimization with recommendations",
     ],
-    client: "Global Retailers Ltd",
-    year: "2025",
+    client: "Zenoboard Philippines",
+    year: "2026",
+    link: "https://zenoboardphilippines.com",
   },
   {
     id: 2,
-    title: "Brand Marketing Campaign",
-    category: "Graphic Design",
-    description: "Created social media graphics, custom advertisement creatives, and comprehensive marketing collateral for multiple high-growth businesses. Solved branding inconsistencies to deliver clean visual assets.",
-    image: "/project2.png",
-    techStack: ["Adobe Photoshop", "Adobe Illustrator", "Canva", "Figma"],
+    title: "Pathra Philippines",
+    category: "Development",
+    description: "Developed a modern, high-performance e-commerce platform for a local fashion brand. Focused on creating a smooth digital product catalog, lightning-fast load time, and a completely responsive mobile layout. ",
+    image: "https://scontent.fcrk1-2.fna.fbcdn.net/v/t39.30808-6/632053286_122124704655051886_8889425382460707749_n.jpg?stp=dst-jpg_tt6&cstp=mx2000x2000&ctp=s2000x2000&_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=JU0K9E_AxuYQ7kNvwEuwuqe&_nc_oc=AdqUspTicAp7DQhtGl95lWoJvlaZpyZyq6r4GZ1gOCxz12tDqWg5o01hJTdH7g0fZmw&_nc_zt=23&_nc_ht=scontent.fcrk1-2.fna&_nc_gid=kafl3PXMRVjTmTwbgtHDrQ&_nc_ss=7b2a8&oh=00_Af_H9QaKrSDS1-OkeE48E5-kdDmbnazpo3ic-DYdtYi_PQ&oe=6A3072CD",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Node.js"],
     features: [
-      "Cohesive social media feed style guides and presets",
-      "High-conversion ad banner sets for Meta & Google Ads",
-      "Print-ready promotional brochures and business flyers",
-      "Logo and typography variations for digital brands",
+      "Custom product visualizer with user-friendly interface",
+      "Guided product selection and purchase process",
+      "Customer experience and SEO optimization",
     ],
-    client: "Lyvera Partners",
-    year: "2025",
+    client: "Pathra Collections",
+    year: "2026",
+    link: "https://www.pathracollection.com/",
   },
   {
     id: 3,
-    title: "AI Business Automation",
+    title: "Pathra Chatbot",
     category: "Automation",
-    description: "Built end-to-end automated workflows using n8n and advanced AI model integrations to optimize business processes, filter leads, and cut down manual data insertion by 80%.",
-    image: "/project3.png",
-    techStack: ["n8n.io", "OpenAI API", "Google Sheets API", "Slack Webhooks", "Make.com"],
+    description: "Built a chatbot using OpenAI API and n8n.io to automate the customer service and support process.",
+    image: "/pathrachat.png",
+    techStack: ["n8n.io", "OpenAI API", "Node.js", "Docker", "Ngrok", "Google Console"],
     features: [
-      "Automatic email inquiry sorting and sentiment analysis",
-      "Instant Slack notifications for priority leads",
-      "Autogenerated CRM logging and database synchronization",
+      "Automated customer service and support process",
       "AI-driven initial reply generation for customer service",
     ],
-    client: "Shift101 Operations",
-    year: "2025",
+    client: "Pathra Collections",
+    year: "2026",
+    link: "",
   },
   {
     id: 4,
-    title: "Business Website Development",
-    category: "Development",
-    description: "Designed and developed custom marketing websites for growing businesses, utilizing high-end animations and responsive frameworks to boost visitor conversion rates and enhance SEO presence.",
-    image: "/project4.png",
-    techStack: ["Next.js 15", "Framer Motion", "Tailwind CSS", "Vercel", "Lucide Icons"],
+    title: "Zenobaord Marketing Campaign",
+    category: "Marketing",
+    description: "Designed and developed custom marketing campaigns that is ready for ad campaigns and social media campaigns. ",
+    image: "https://scontent.fcrk1-2.fna.fbcdn.net/v/t39.30808-6/655737571_1367353278482907_4151684737744893578_n.jpg?stp=dst-jpg_tt6&cstp=mx2047x2048&ctp=s2047x2048&_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Xus6XqKA27oQ7kNvwEilMXu&_nc_oc=AdoiguSs1fnpoB-akrCiUARQ1pVb_ogZdERa-3miYQNDQgx_3I50ee86JNz0SSdI8G8&_nc_zt=23&_nc_ht=scontent.fcrk1-2.fna&_nc_gid=KLYQWFSOc1EunYtX60fg8g&_nc_ss=7a2a8&oh=00_Af-kQOkBL4eBGZLNksGsgC2FtVFe5LIdVBMK54KfFjWSEQ&oe=6A30781D",
+    techStack: ["Adobe Photoshop", "Adobe Illustrator", "Adobe Premiere Pro", "Capcut", "Higgsfield", "Holo AI", "Gemini"],
     features: [
-      "Fluid scroll-linked animations and page transitions",
-      "SEO audit score of 100 with server-side generation",
-      "Interactive multi-step contact and quoting tools",
-      "Accessible markup (WCAG 2.1 AA compliant)",
+      "Delivered a marketing campaign Video Ads and Graphic Ads for the brand",
+      "Optimized the brand's social media presence and engagement",
+      "Increased the brand's reach and awareness",
+      "100+ Inquiries from facebook and tiktok",
     ],
-    client: "Emerging Tech Corp",
-    year: "2025",
+    client: "Pathra Collections",
+    year: "2026",
+    link: "https://www.pathracollection.com/",
   },
 ];
 
-const FILTERS: ("All" | "Development" | "Graphic Design" | "Automation")[] = [
+const FILTERS: ("All" | "Development" | "Marketing" | "Automation")[] = [
   "All",
   "Development",
-  "Graphic Design",
+  "Marketing",
   "Automation",
 ];
 
 export default function Projects() {
-  const [filter, setFilter] = useState<"All" | "Development" | "Graphic Design" | "Automation">("All");
+  const [filter, setFilter] = useState<"All" | "Development" | "Marketing" | "Automation">("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = PROJECTS.filter((p) => {
@@ -133,12 +134,12 @@ export default function Projects() {
           </div>
 
           {/* Filtering Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-1 dark:bg-white/5 bg-zinc-100 p-1 rounded-full border dark:border-white/10 border-zinc-200 w-fit mx-auto md:mx-0">
+          <div className="flex items-center justify-start md:justify-center gap-1 dark:bg-white/5 bg-zinc-100 p-1 rounded-full border dark:border-white/10 border-zinc-200 w-full md:w-fit mx-auto md:mx-0 overflow-x-auto no-scrollbar">
             {FILTERS.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 relative cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 relative cursor-pointer whitespace-nowrap shrink-0 ${
                   filter === cat ? "text-white" : "dark:text-zinc-400 text-zinc-500 dark:hover:text-zinc-200 hover:text-zinc-800"
                 }`}
               >
@@ -158,7 +159,7 @@ export default function Projects() {
         {/* Projects Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border dark:border-white/10 border-zinc-200 rounded-2xl overflow-hidden divide-x divide-y dark:divide-white/10 divide-zinc-200"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
@@ -172,60 +173,35 @@ export default function Projects() {
                 className="group cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
-                <GlassCard className="h-full border dark:border-white/5 border-zinc-200 p-0 overflow-hidden flex flex-col relative" hoverEffect={true}>
-                  
-                  {/* Thumbnail Image Container */}
-                  <div className="relative aspect-video w-full overflow-hidden dark:bg-zinc-950 bg-zinc-100 border-b dark:border-white/5 border-zinc-200">
+                <div className="h-full flex flex-col">
+
+                  {/* Thumbnail Image */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden dark:bg-zinc-950 bg-zinc-100">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      sizes="(max-w-768px) 100vw, 500px"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-700 scale-100 group-hover:scale-105"
                     />
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 dark:bg-[#08080a]/60 bg-white/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                      <div className="p-3 dark:bg-white/10 bg-black/10 rounded-full backdrop-blur-md border dark:border-white/20 border-zinc-300 dark:text-white text-zinc-800 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <Eye size={20} />
-                      </div>
-                    </div>
-
-                    {/* Category pill on image */}
-                    <div className="absolute top-4 left-4 px-3 py-1 rounded-full dark:bg-black/60 bg-white/80 backdrop-blur-md border dark:border-white/10 border-zinc-200 text-[10px] font-bold dark:text-zinc-300 text-zinc-600 uppercase tracking-widest">
-                      {project.category}
-                    </div>
                   </div>
 
                   {/* Text Details */}
-                  <div className="p-6 md:p-8 flex-1 flex flex-col justify-between gap-4">
-                    <div className="space-y-2">
-                      <h4 className="text-lg font-bold dark:text-white text-zinc-900 uppercase tracking-wider group-hover:text-blue-400 transition-colors">
+                  <div className="px-5 py-4 flex items-center justify-between gap-3">
+                    <div className="space-y-0.5 min-w-0">
+                      <h4 className="text-sm font-semibold dark:text-white text-zinc-900 truncate">
                         {project.title}
                       </h4>
-                      <p className="text-xs dark:text-zinc-400 text-zinc-500 leading-relaxed line-clamp-2">
-                        {project.description}
+                      <p className="text-xs dark:text-zinc-500 text-zinc-400">
+                        {project.category}
                       </p>
                     </div>
-
-                    {/* Tech tag list */}
-                    <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                      {project.techStack.slice(0, 3).map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 rounded dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 text-[9px] font-bold dark:text-zinc-400 text-zinc-500 uppercase tracking-wider"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.techStack.length > 3 && (
-                        <span className="text-[9px] font-bold dark:text-zinc-500 text-zinc-400 tracking-wider">
-                          +{project.techStack.length - 3} MORE
-                        </span>
-                      )}
+                    <div className="shrink-0 p-2 rounded-full border dark:border-white/10 border-zinc-200 dark:text-zinc-400 text-zinc-500 group-hover:border-blue-500 group-hover:text-blue-500 group-hover:bg-blue-500/10 transition-colors">
+                      <ArrowUpRight size={14} />
                     </div>
                   </div>
 
-                </GlassCard>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -333,6 +309,18 @@ export default function Projects() {
                         ))}
                       </ul>
                     </div>
+
+                    {/* View Project Button */}
+                    {selectedProject.link && (
+                      <a
+                        href={selectedProject.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold uppercase tracking-widest transition-colors"
+                      >
+                        View Project <ExternalLink size={14} />
+                      </a>
+                    )}
 
                   </div>
 

@@ -42,6 +42,8 @@ const TIMELINE_DATA = [
 ];
 
 export default function Experience() {
+  const lastIndex = TIMELINE_DATA.length - 1;
+
   return (
     <section
       id="experience"
@@ -73,28 +75,33 @@ export default function Experience() {
         </div>
 
         {/* Timeline Layout */}
-        <div className="relative pl-6 md:pl-10 border-l dark:border-white/10 border-zinc-300 space-y-12 max-w-3xl mx-auto md:mx-0">
-          
-          {/* Glowing Line Overlay */}
-          <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-gradient-to-b from-blue-500 via-indigo-500 to-transparent pointer-events-none" />
-
+        <div className="space-y-0 max-w-3xl mx-auto md:mx-0">
           {TIMELINE_DATA.map((item, idx) => (
-            <div key={idx} className="relative group">
+            <div key={idx} className="relative flex gap-4 md:gap-6 group">
               
-              {/* Timeline Bullet Node */}
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 md:w-5 md:h-5 rounded-full border border-blue-500 flex items-center justify-center z-10"
-                style={{ background: "var(--background)" }}
-              >
-                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-500 group-hover:scale-125 transition-transform duration-300" />
-              </motion.div>
+              {/* Track: dot + connector (line stops at last entry) */}
+              <div className="relative flex w-5 md:w-6 shrink-0 flex-col items-center">
+                <motion.div
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                  className="relative z-10 mt-1.5 flex h-4 w-4 md:h-5 md:w-5 shrink-0 items-center justify-center rounded-full border border-blue-500"
+                  style={{ background: "var(--background)" }}
+                >
+                  <div className="h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-blue-500 transition-transform duration-300 group-hover:scale-125" />
+                </motion.div>
 
-              {/* Entry Animation Wrapper */}
-              <div className="space-y-3">
+                {idx < lastIndex && (
+                  <div
+                    className="mt-2 w-px flex-1 bg-gradient-to-b from-blue-500 via-indigo-500 to-blue-500/40"
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
+
+              {/* Entry content */}
+              <div className={`min-w-0 flex-1 space-y-3 ${idx < lastIndex ? "pb-12" : "pb-0"}`}>
                 
                 {/* Year Info */}
                 <motion.div
@@ -141,7 +148,6 @@ export default function Experience() {
 
             </div>
           ))}
-
         </div>
 
       </div>

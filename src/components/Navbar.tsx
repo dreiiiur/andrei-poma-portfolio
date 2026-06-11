@@ -53,9 +53,9 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4">
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center py-3 sm:py-4 px-3 sm:px-4">
         <nav
-          className={`w-full max-w-5xl flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${scrolled
+          className={`w-full max-w-5xl flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-500 ${scrolled
               ? "dark:bg-[#08080a]/60 bg-white/70 backdrop-blur-md border dark:border-white/10 border-zinc-200/80 dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
               : "bg-transparent border border-transparent"
             }`}
@@ -64,10 +64,10 @@ export default function Navbar() {
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "home")}
-            className="text-base font-bold tracking-wider dark:text-white text-zinc-900 flex items-center gap-2 hover:text-blue-400 transition-colors"
+            className="text-base font-bold tracking-wider dark:text-white text-zinc-900 flex items-center gap-2 hover:text-blue-400 transition-colors shrink-0"
           >
-            <span className="bg-gradient-to-r from-blue-500 to-indigo-500 w-2 h-2 rounded-full animate-pulse" />
-            <img src="/logo.jpg" alt="Logo" className="w-12 h-12 rounded-full" />
+            <span className="bg-gradient-to-r from-blue-500 to-indigo-500 w-2 h-2 rounded-full animate-pulse hidden sm:block" />
+            <img src="/logo.jpg" alt="Logo" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full" />
           </a>
 
           {/* Desktop Nav */}
@@ -121,7 +121,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-4 top-20 z-40 md:hidden glass-panel rounded-3xl p-6 dark:shadow-[0_10px_50px_rgba(0,0,0,0.8)] shadow-[0_10px_50px_rgba(0,0,0,0.1)] border dark:border-white/10 border-zinc-200"
+            className="fixed inset-x-3 sm:inset-x-4 top-[4.25rem] sm:top-20 z-40 md:hidden glass-panel rounded-3xl p-5 sm:p-6 dark:shadow-[0_10px_50px_rgba(0,0,0,0.8)] shadow-[0_10px_50px_rgba(0,0,0,0.1)] border dark:border-white/10 border-zinc-200"
           >
             <div className="flex flex-col gap-3">
               {NAV_ITEMS.map((item) => (
