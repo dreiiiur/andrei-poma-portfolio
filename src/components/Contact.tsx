@@ -157,8 +157,8 @@ export default function Contact() {
               </div>
 
               <a
-                href="/Andrei_Poma_Resume.pdf"
-                download="Andrei_Poma_Resume.pdf"
+                href="/AndreiPomaCV2026.pdf"
+                download="AndreiPomaCV2026.pdf"
                 className="px-5 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 text-white font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-md shadow-blue-500/10 transition-colors w-full"
               >
                 <Download size={14} />
