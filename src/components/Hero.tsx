@@ -12,7 +12,7 @@ const ROLES = [
   "Graphic Artist",
   "Video Editor",
   "Full-Stack Web Developer",
-  "Automation Specialist",
+  "Automation",
 ];
 
 export default function Hero() {
