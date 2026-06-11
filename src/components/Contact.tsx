@@ -130,7 +130,7 @@ export default function Contact() {
                   <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
                     <FaFacebook size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
-                  <span>linkedin.com/in/andreipoma</span>
+                  <span>Andrei Poma</span>
                 </a>
 
                 <a
@@ -142,7 +142,7 @@ export default function Contact() {
                   <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
                     <FaGithub size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
-                  <span>github.com/andreipoma</span>
+                  <span>dreiiiur</span>
                 </a>
               </div>
             </GlassCard>
