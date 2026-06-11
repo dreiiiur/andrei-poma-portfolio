@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion as framerMotion } from "framer-motion";
 import { Check, Download, Github, Linkedin, Mail, Send } from "lucide-react";
+import {FaFacebook, FaGithub, FaLinkedin} from "react-icons/fa";
 import GlassCard from "./ui/GlassCard";
 import Select from "./ui/Select";
 
@@ -117,29 +118,29 @@ export default function Contact() {
                   <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
                     <Mail size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
-                  <span>contact@andreipoma.com</span>
+                  <span>andreipoma123@gmail.com</span>
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.facebook.com/dreiur/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-xs md:text-sm dark:text-zinc-400 text-zinc-500 dark:hover:text-white hover:text-zinc-900 transition-colors group"
                 >
                   <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
-                    <Linkedin size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
+                    <FaFacebook size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
                   <span>linkedin.com/in/andreipoma</span>
                 </a>
 
                 <a
-                  href="https://github.com"
+                  href="https://github.com/dreiiiur"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-xs md:text-sm dark:text-zinc-400 text-zinc-500 dark:hover:text-white hover:text-zinc-900 transition-colors group"
                 >
                   <div className="p-2.5 rounded-lg dark:bg-white/5 bg-zinc-100 border dark:border-white/5 border-zinc-200 group-hover:border-blue-500/30 group-hover:bg-blue-500/5 transition-colors">
-                    <Github size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
+                    <FaGithub size={16} className="dark:text-zinc-400 text-zinc-500 group-hover:text-blue-400" />
                   </div>
                   <span>github.com/andreipoma</span>
                 </a>

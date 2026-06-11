@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github, Linkedin, Mail, Sparkles, Terminal, Video } from "lucide-react";
+import {FaFacebook, FaGithub, FaLinkedin} from "react-icons/fa";
 import GlassCard from "./ui/GlassCard";
 import Blob from "./ui/Blob";
 
@@ -21,6 +22,7 @@ export default function Hero() {
       el.scrollIntoView({ behavior: "smooth" });
     }
   };
+  
 
   return (
     <section
@@ -124,22 +126,22 @@ export default function Hero() {
             className="flex items-center justify-center md:justify-start gap-5 pt-1 sm:pt-4"
           >
             <a
-              href="https://github.com"
+              href="https://github.com/dreiiiur"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"
               className="p-2 -m-2 dark:text-zinc-500 text-zinc-400 dark:hover:text-white hover:text-zinc-900 transition-colors"
             >
-              <Github size={20} />
+              <FaGithub size={20} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.facebook.com/dreiur/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
+              aria-label="Facebook profile"
               className="p-2 -m-2 dark:text-zinc-500 text-zinc-400 hover:text-blue-400 transition-colors"
             >
-              <Linkedin size={20} />
+              <FaFacebook size={20} />
             </a>
             <a
               href="mailto:contact@andreipoma123@gmail.com"
