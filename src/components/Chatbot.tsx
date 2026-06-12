@@ -55,7 +55,8 @@ export default function Chatbot() {
         },
         body: JSON.stringify({
           action: "sendMessage",
-          chatInput: userMessage.text, // Must be chatInput, not message
+          chatInput: userMessage.text,
+          sessionId: "portfolio-chat-session", // Added a stable session key for n8n memory
         }),
       });
 
@@ -211,7 +212,7 @@ export default function Chatbot() {
             </button>
           </form>
           <div className="text-center mt-2">
-            <span className="text-[10px] text-muted-foreground/60">Powered by n8n AI Automations</span>
+            <span className="text-[10px] text-muted-foreground/60">Powered Bertong Matigas</span>
           </div>
         </div>
       </div>
