@@ -22,7 +22,7 @@ export default function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Webhook URL to be configured by the user
+  // Updated to match a standard n8n Webhook node production/test structure path
   const WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "http://localhost:5678/webhook/b8782daf-2030-421f-8334-0a29a81d42e8/chat";
 
   const scrollToBottom = () => {
@@ -48,31 +48,39 @@ export default function Chatbot() {
     setIsLoading(true);
 
     try {
-      // Send message to n8n webhook
-      // Expected request payload format, adjust according to your n8n setup
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          sessionId: "user-session-" + Math.random().toString(36).substring(7),
-          message: userMessage.text,
+          action: "sendMessage",
+          chatInput: userMessage.text, // Must be chatInput, not message
         }),
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(`Network response was not ok: ${response.status}`);
       }
 
-      // Expected response format from n8n webhook
-      // e.g. { "reply": "Hello from n8n!" } or text response
       const data = await response.json();
+
+      // Read standard JSON return properties output from the AI Agent node
+      let botResponseText = "Sorry, I received an unreadable response format.";
+      if (Array.isArray(data) && data[0]?.output) {
+        botResponseText = data[0].output;
+      } else if (data.output) {
+        botResponseText = data.output;
+      } else if (data.text) {
+        botResponseText = data.text;
+      } else if (typeof data === "string") {
+        botResponseText = data;
+      }
 
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "bot",
-        text: data.reply || data.output || data.message || "Sorry, I received an invalid response format from the server.",
+        text: botResponseText,
       };
 
       setMessages((prev) => [...prev, botMessage]);
